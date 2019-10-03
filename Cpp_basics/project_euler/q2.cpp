@@ -35,7 +35,13 @@ int main (int argc, char** argv)
         }
         else
         {
-            return sumFibonacci(n1,n2,b);
+            int totalsum;
+
+            totalsum = sumFibonacci(n1,n2,b);
+
+            std::cout << "The sum of even terms of the "
+            << "Fibonacci starting with " << n1 << " and "
+            << n2 << " is " << totalsum << ".\n";
         }
     }
     else 

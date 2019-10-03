@@ -1,27 +1,33 @@
 // sumFibonacci.cpp
 
+#include <iostream>
+
+#include "sumFibonacci.h"
+
 // sum Fibonacci returns the sum of all terms of the
 // Fibonacci sequence beginning with the ordered pair
 // (alpha, beta) of positive integers that is less
 // than bound.
 int sumFibonacci (int alpha, int beta, int bound)
 {
-    int x,y;
+    int x,y,z,sum;
 
-    x = alpha % 2;
-    y = beta  % 2;
+    x   = alpha;
+    y   = beta;
+    sum = 0;
 
-    if (x == 0)
+    while (x < bound)
     {
+        if (x % 2 == 0)
+        {
+            sum += x;
+        }
 
+        z = x+y;
+        x = y;
+        y = z;
     }
-    else if (y == 0)
-    {
 
-    }
-    else
-    {
-        
-    }
+    return sum;
 }
 
