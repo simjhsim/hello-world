@@ -1,3 +1,5 @@
 
 1) [completed]
 2) [brute forced] look for more efficient method
+3) [completed]
+4) 
