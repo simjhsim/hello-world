@@ -125,3 +125,21 @@ int consSum (int a, int b)
 
     return (b-a+1)*(a+b)/2;
 }
+
+// logint takes in a and b and computes the greatest
+// integer less than log_a(b).
+int logint (int a, int b)
+{
+    int i, j, base, inp;
+    base = a;
+    inp  = b;
+    j = inp % base;
+
+    for (i = 0; j != 0; i++)
+    {
+        inp = inp / base;
+        j = inp % base;
+    }
+
+    return i;
+}

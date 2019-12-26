@@ -11,6 +11,8 @@
 //          integers.
 // leastCommonMultiple 
 //      - finds the least common multiple of two integers.
+// logint
+//      - finds greatest integer less than log_a(b).
 // powint 
 //      - integer power function
 
@@ -37,6 +39,10 @@ int arithSum (int a, int b, int d);
 // consSum takes in two integers (a,b) and returns the
 // sum of all integers between and a and b (inclusive).
 int consSum (int a, int b);
+
+// logint takes in a and b and computes the greatest
+// integer less than log_a(b).
+int logint (int a, int b);
 
 
 #endif
