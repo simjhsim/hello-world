@@ -3,6 +3,7 @@
 // Useful math functions
 
 #include <iostream>
+#include <vector>
 
 #include "myMath.h"
 
@@ -142,4 +143,58 @@ int logint (int a, int b)
     }
 
     return i;
+}
+
+
+// primeFactors takes in an empty vector of integer pairs 
+// and a positive integer and fills the vector with the 
+// prime factors and their multiplicities.
+int primeFactors (std::vector<struct IntPair> & factors, 
+    int num)
+{
+    if (num == 0)
+    {
+        std::cout << "[MM:PF] primeFactors given 0.\n";
+        return -1;
+    }
+
+    struct IntPair ipair;
+    int i, j, n;
+    n = num;
+    j = 0;
+
+    for (i = 2; i <= n; ++i)
+    {
+        while (n % i == 0)
+        {
+            n = n / i;
+            ++j;
+        }
+
+        if (j > 0)
+        {
+            ipair.x = i;
+            ipair.y = j;
+            factors.push_back(ipair);
+            j = 0;
+        }
+    }
+
+    return 0;
+}
+
+// numDivisors takes in a vector of integer pairs
+// representing the prime factorization of a number and
+// returns the number of divisors the number has.
+int numDivisors (std::vector<struct IntPair> & pfactors)
+{
+    int size = pfactors.size();
+    int numDiv = 1;
+
+    for (int i = 0; i < size; ++i)
+    {
+        numDiv *= (pfactors[i]).y + 1;
+    }
+
+    return numDiv;
 }

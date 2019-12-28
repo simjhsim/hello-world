@@ -30,7 +30,7 @@
 // and computes the largest product of n consecutive
 // integers in the given string.
 
-#define DEBUG
+// #define DEBUG
 
 #include <iostream>
 #include <queue> 
