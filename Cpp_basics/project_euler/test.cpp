@@ -7,57 +7,35 @@
 #include <fstream>
 #include <vector>
 
-#include "myMath.h"
+#include "bigInt.h"
 
 int main (int argc, char** argv)
 {
-    std::vector<struct IntPair> pfactors;
-    struct IntPair ipair;
+    int num_errors = 0;
 
-    if (primeFactors(pfactors, 25) == 0)
-    {
-        std::cout << "[TEST] 25 has " << 
-            numDivisors(pfactors) << " divisors.\n";
-        std::cout << "[TEST] The prime factorization of 25 "
-            << "is:";
-        while (!pfactors.empty())
-        {
-            ipair = pfactors.front();
-            std::cout << " " << ipair.x << "^" << ipair.y;
-            pfactors.erase(pfactors.begin());
-        }
-        std::cout << ".\n";
-    }
+    // initialize variables
+    std::vector <int> digits1, digits2;
 
-    if (primeFactors(pfactors, 35) == 0)
-    {
-        std::cout << "[TEST] 35 has " << 
-            numDivisors(pfactors) << " divisors.\n";
-        std::cout << "[TEST] The prime factorization of 35 "
-            << "is:";
-        while (!pfactors.empty())
-        {
-            ipair = pfactors.front();
-            std::cout << " " << ipair.x << "^" << ipair.y;
-            pfactors.erase(pfactors.begin());
-        }
-        std::cout << ".\n";
-    }
+    digits1.push_back(1);
+    digits1.push_back(1);
 
-    if (primeFactors(pfactors, 47) == 0)
-    {
-        std::cout << "[TEST] 47 has " << 
-            numDivisors(pfactors) << " divisors.\n";
-        std::cout << "[TEST] The prime factorization of 47 "
-            << "is:";
-        while (!pfactors.empty())
-        {
-            ipair = pfactors.front();
-            std::cout << " " << ipair.x << "^" << ipair.y;
-            pfactors.erase(pfactors.begin());
-        }
-        std::cout << ".\n";
-    }
+    digits2.push_back(0);
 
-    return 0;
+    BigInt10 bint1, bint2, suma, diffa, sum, diff, prodb, 
+        prod;
+
+    bint1.pos = true;
+    bint2.pos = true;
+    bint1.digits = digits1;
+    bint2.digits = digits2;
+
+    bi10absPlus(bint1, bint2, suma);
+    bi10absMinus(bint1, bint2, diffa);
+    bi10Plus(bint1,bint2,sum);
+    bi10Minus(bint1,bint2,diff);
+    bi10Prod(bint1, bint2, prodb);
+    bi10ProdInt(bint1, 0, prod);
+
+    // count errors
+    
 }

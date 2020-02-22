@@ -198,3 +198,65 @@ int numDivisors (std::vector<struct IntPair> & pfactors)
 
     return numDiv;
 }
+
+// powllint computes a^b where a is an integer, b is a 
+// nonnegative integer, and ^ is the exponential function.
+long long int powllint (long long int a, long long int b)
+{
+    long long int i, j, exp;
+    exp = 1;
+    if (b < 0)
+    {
+        std::cout << "Power is negative. Computing powint("
+            << a << "," << (-1 * b) << ").\n";
+        j = -b;
+    }
+    else
+    {
+        j = b;
+    }
+
+    for (i = j; i > 0; i--)
+    {
+        exp = exp * a;
+    }
+
+    return exp;
+}
+
+// aChooseb computes the number of choices of b elements
+// in a set of a unique elements. Implemented recursively.
+long long int aChooseb (int a, int b)
+{
+    if (a < b || b < 0)
+    {
+        return 0;
+    }
+    else if (b == 0)
+    {
+        return 1;
+    }
+    else if (a == b)
+    {
+        return 1;
+    }
+    else if (b == 1)
+    {
+        return a;
+    }
+    else if (a - b < 5)
+    {
+        int prodn, prodd, bound;
+        bound = a - b;
+        prodn = 1;
+        prodd = 1;
+        for (int i = 0; i < bound; ++i)
+        {
+            prodn = prodn * (a-i);
+            prodd = prodd * (i+1);
+        }
+        return prodn / prodd;
+    }
+
+    return aChooseb(a-1, b) + aChooseb(a-1,b-1);
+}

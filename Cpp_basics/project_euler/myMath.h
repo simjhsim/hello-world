@@ -2,6 +2,8 @@
 
 // Recurring and useful math functions.
 // Index:
+// aChooseb
+//      - a choose b (returns long long int).
 // arithSum
 //      - arithmetic sum.
 // consSum
@@ -17,6 +19,8 @@
 //      - find number of divisors of a prime factorization.
 // powint 
 //      - integer power function.
+// powllint
+//      - long long int power function.
 // primeFactors
 //      - finds prime factorization of integer.
 
@@ -32,6 +36,10 @@ struct IntPair
 // powint computes a^b where a is an integer, b is a 
 // nonnegative integer, and ^ is the exponential function.
 int powint (int a, int b);
+
+// powllint computes a^b where a is an integer, b is a 
+// nonnegative integer, and ^ is the exponential function.
+long long int powllint (long long int a, long long int b);
 
 // greatestCommonFactor takes in two positive integers
 // and returns their greatest common factor
@@ -65,5 +73,9 @@ int primeFactors (std::vector<struct IntPair> & factors,
 // returns the number of divisors the number has.
 int numDivisors (std::vector<struct IntPair> & pfactors);
 
+// aChooseb computes the number of choices of b elements
+// in a set of a unique elements. (optimized to reduce
+// overflow)
+long long int aChooseb (int a, int b);
 
 #endif
